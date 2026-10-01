@@ -16,9 +16,13 @@ public class RegistroTempoOnline {
     }
 
     public void adicionaTempoOnline(int i) {
+        tempoOnlineInvestido += i;
     }
 
     public boolean atingiuMetaTempoOnline() {
+        if (tempoOnlineInvestido >= tempoOnlineEsperado) {
+            return true;
+        }
         return false;
     }
 }

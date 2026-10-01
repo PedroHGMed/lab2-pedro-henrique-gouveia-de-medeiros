@@ -6,7 +6,9 @@ public class Disciplina {
     private String nome;
     private double[] notas = new double[4];
     private int horas;
-
+    public Disciplina(String nome) {
+        this.nome = nome;
+    }
     public void cadastraHoras(int i) {
         horas = i;
     }

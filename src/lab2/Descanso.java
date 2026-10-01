@@ -5,7 +5,8 @@ public class Descanso {
     private int numSemanas;
 
     public Descanso() {
-
+        this.horasDescanso = 0;
+        this.numSemanas = 1;
     }
 
     public String getStatusGeral() {
