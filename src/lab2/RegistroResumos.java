@@ -2,13 +2,14 @@ package lab2;
 
 public class RegistroResumos {
     private int len;
-    private Resumo[] Registro = new Resumo[len];
+    private Resumo[] Registro;
     private int iResumo = 0;
     private int numeroDeElementos = 0;
     private boolean jaMudou = false;
 
     public RegistroResumos(int num) {
         this.len = num;
+        Registro = new Resumo[len];
     }
 
     public void adiciona(String tema, String conteudo) {
@@ -45,8 +46,8 @@ public class RegistroResumos {
         String buffer = "- ";
         buffer += numeroDeElementos;
         buffer += " resumo(s) cadastrado(s)\n- ";
-        for (Resumo resumo : Registro) {
-            buffer += resumo;
+        for (int i = 0; i < numeroDeElementos; i++) {
+            buffer += Registro[i];
             buffer += " | ";
         }
         buffer = buffer.substring(0, buffer.length() - 3);
@@ -54,8 +55,8 @@ public class RegistroResumos {
     }
 
     public boolean temResumo(String tema) {
-        for (Resumo resumo : Registro) {
-            if (resumo.tema.equals("tema")) {
+        for (int i = 0; i < numeroDeElementos; i++) {
+            if (Registro[i].tema.equals("tema")) {
                 return true;
             }
         }
