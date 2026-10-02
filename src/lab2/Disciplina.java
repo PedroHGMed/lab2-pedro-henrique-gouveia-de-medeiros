@@ -18,12 +18,16 @@ public class Disciplina {
         notas[nota] = valorNota;
     }
     public double calculaMedia() {
-        return Arrays.stream(notas).sum();
+        return Arrays.stream(notas).sum() / 4;
     }
     public boolean aprovado() {
         if (this.calculaMedia() < 7.0) {
             return false;
         }
         return true;
+    }
+    @Override
+    public String toString() {
+        return nome + " " + 4 + " " + calculaMedia() + " " + Arrays.toString(notas);
     }
 }
