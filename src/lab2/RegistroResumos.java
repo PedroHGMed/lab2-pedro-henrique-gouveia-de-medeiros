@@ -1,6 +1,11 @@
 package lab2;
 
+import java.util.Arrays;
+
 public class RegistroResumos {
+    /*
+    Removeria esse atributo len, pode ser acessado como Registro.length
+     */
     private int len;
     private Resumo[] Registro;
     private int iResumo = 0;
@@ -56,10 +61,25 @@ public class RegistroResumos {
 
     public boolean temResumo(String tema) {
         for (int i = 0; i < numeroDeElementos; i++) {
-            if (Registro[i].tema.equals("tema")) {
+            if (Registro[i].tema.equals(tema)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public String[] busca(String chaveDeBusca) {
+        String[] tempArray = new String[0];
+        int indexArray = 0;
+        for (Resumo i : Registro) {
+            if (i == null) break;
+
+            if (i.conteudo.contains(chaveDeBusca)) {
+                tempArray = Arrays.copyOf(tempArray, indexArray + 1);
+                tempArray[indexArray++] = i.tema;
+            }
+        }
+        Arrays.sort(tempArray, String.CASE_INSENSITIVE_ORDER);
+        return tempArray;
     }
 }

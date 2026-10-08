@@ -4,13 +4,25 @@ import java.util.Arrays;
 
 public class Disciplina {
     private String nome;
-    private double[] notas = new double[4];
+    private int qtdeNotas;
+    private double[] notas = new double[qtdeNotas];
     private int horas;
+    private int[] pesoNotas;
+
     public Disciplina(String nome) {
         this.nome = nome;
+        this.qtdeNotas = 4;
+        this.pesoNotas = new int[] {1, 1, 1, 1};
     }
-    public void cadastraHoras(int i) {
-        horas = i;
+
+    public Disciplina(String nome, int qtdeNotas, int[] pesoNotas) {
+        this.nome = nome;
+        this.qtdeNotas = qtdeNotas;
+        this.pesoNotas = pesoNotas;
+    }
+
+    public void cadastraHoras(int novoValor) {
+        this.horas = novoValor;
     }
 
     public void cadastraNota(int nota, double valorNota) {
@@ -18,13 +30,14 @@ public class Disciplina {
         notas[nota] = valorNota;
     }
     public double calculaMedia() {
-        return Arrays.stream(notas).sum() / 4;
+        double soma = 0;
+        for (int i = 0; i < pesoNotas.length; i++) {
+            soma += pesoNotas[i] * notas[i];
+        }
+        return soma / Arrays.stream(pesoNotas).sum();
     }
     public boolean aprovado() {
-        if (this.calculaMedia() < 7.0) {
-            return false;
-        }
-        return true;
+        return !(this.calculaMedia() < 7.0);
     }
     @Override
     public String toString() {
