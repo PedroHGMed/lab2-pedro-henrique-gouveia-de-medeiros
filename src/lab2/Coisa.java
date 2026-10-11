@@ -1,17 +1,14 @@
 package lab2;
 
-import java.util.Arrays;
-
 public class Coisa {
     public static void main(String[] args) {
-        /* registrarDescanso();
+        registrarDescanso();
         System.out.println("-----");
         registrarTempoOnline();
         System.out.println("-----");
         controlarDisciplina();
         System.out.println("-----");
-        registrarResumos(); */
-        minhaBusca();
+        registrarResumos();
     }
     public static void registrarDescanso() {
         Descanso descanso = new Descanso();
@@ -70,14 +67,5 @@ public class Coisa {
         System.out.println(meusResumos.imprimeResumos());
         System.out.println(meusResumos.temResumo("Classes"));
         System.out.println(meusResumos.temResumo("Objetos"));
-    }
-    private static void minhaBusca() {
-        RegistroResumos meusResumos = new RegistroResumos(100);  // 100 resumos
-
-        meusResumos.adiciona("Classes", "Classes definem um tipo e a base de código para criação de objetos.");
-        meusResumos.adiciona("Tipo", "Identifica a semântica (operações e significados) de um conjunto de dados.");
-        meusResumos.adiciona("João do balão", "umMMMMMMMMMMMMMMMMMMMMMMMMM");
-
-        System.out.println(Arrays.toString(meusResumos.busca("um")));
     }
 }
